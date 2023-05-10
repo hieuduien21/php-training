@@ -92,7 +92,7 @@ class BaseModel
 
         $dataExcute = array_merge($data, $dataExcute);
 
-        $id = $this->pdo->prepare($sql)->execute($dataExcute);
+        $stmt = $this->pdo->prepare($sql)->execute($dataExcute);
         return $id ? true : false;
     }
 
@@ -105,7 +105,9 @@ class BaseModel
             $sql .= $where;
         }
        
-        return $this->pdo->prepare($sql)->execute($dataExcute); 
+        $stmt = $this->pdo->prepare($sql); 
+        $stmt->execute($dataExcute);
+        return $stmt->rowCount();
     }
 
     public function select($select)

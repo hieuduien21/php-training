@@ -98,7 +98,6 @@ class HomeController
         $id = $_GET['id'];
 
         $products = new Product();
-
         
         $rowCount = $products->where('id', $id)->delete();
         if ($rowCount) {
