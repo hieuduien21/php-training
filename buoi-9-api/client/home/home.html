@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="/client/css/all.min.css">
+    <link rel="stylesheet" href="/client/css/adminlte.min.css">
+
+</head>
+<body class="container p-5">
+    <style>
+        .item-news {
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+        .list-news {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 20px; 
+        }
+        .item-news img{
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+    <div class="list-news">
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="/client/js/home.js"></script>
+</body>
+</html>

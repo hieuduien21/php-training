@@ -1,6 +1,7 @@
 <?php
 
 namespace View;
+use Message\Message;
 
 class View
 {

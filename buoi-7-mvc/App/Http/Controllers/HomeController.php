@@ -13,7 +13,8 @@ class HomeController
     {
         $products = new Product();
         $data = [
-            'products' => $products->get()
+            'products' => $products->get(),
+            'flashMessage' => Message::message()
         ];
 
         View::render('home/index.php', $data);
@@ -38,9 +39,9 @@ class HomeController
             $id = $products->insert($row);
 
             if ($id) {
-                Message::setMessage("Thêm sản phẩm thành công", "success");
+                Message::message("home", "Thêm sản phẩm thành công", "success");
             } else {
-                Message::setMessage("Thêm sản phẩm không thành công", "error");
+                Message::message("home", "Thêm sản phẩm không thành công", "error");
             }
 
             header("Location: /");
@@ -77,9 +78,9 @@ class HomeController
             $id = $products->where('id', $id)->update($row);
 
             if ($id) {
-                Message::setMessage("Cập nhật thành công", "success");
+                Message::message("update", "Cập nhật thành công", "success");
             } else {
-                Message::setMessage("Cập nhật không thành công", "error");
+                Message::message("update", "Cập nhật không thành công", "error");
             }
 
             header("Location: /");
@@ -87,7 +88,8 @@ class HomeController
         }
 
         $data = [
-            'data' => $products->where('id', $id)->getRow()
+            'data' => $products->where('id', $id)->getRow(),
+            'flashMessage' => Message::message()
         ];
 
         View::render('home/update.php', $data);
@@ -101,9 +103,9 @@ class HomeController
         
         $rowCount = $products->where('id', $id)->delete();
         if ($rowCount) {
-            Message::setMessage("Xóa thành công", "success");
+            Message::message("del", "Xóa thành công", "success");
         } else {
-            Message::setMessage("Xóa không thành công", "error");
+            Message::message("del", "Xóa không thành công", "error");
         }
         header("Location: /");
         exit();

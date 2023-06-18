@@ -10,8 +10,7 @@
 </head>
 
 <body>
-    <div class="container">
-        <?php echo $flashMessage ?>    
+    <div class="container"> 
         <div class="d-flex align-items-center justify-content-between mt-5 mb-3">
             <h1 class="">List Product</h1>
             <a href="/products/add" type="button" class="btn btn-primary">Create</a>
@@ -28,25 +27,25 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($products as $i => $item) { ?>
+                @foreach ($data as $i => $item)
                     <tr>
-                        <th class="align-middle" scope="row"><?php echo $i + 1 ?></th>
-                        <td class="align-middle"><?php echo $item->name ?></td>
+                        <th class="align-middle" scope="row">{{$i + 1}}</th>
+                        <td class="align-middle">{{$item->name}}</td>
                         <td>
-                            <img src="/<?php echo $item->image ?>" alt="<?php echo $item->name ?>" class="img-fluid" style="width: 50px; height: 50px; object-fit:cover">
+                            <img src="/{{$item->image}}" alt="{{$item->name}}" class="img-fluid" style="width: 50px; height: 50px; object-fit:cover">
                         </td>
-                        <td class="align-middle"><?php echo $item->description ?></td>
-                        <td class="align-middle"><?php echo $item->price ?></td>
+                        <td class="align-middle">{{$item->description}}</td>
+                        <td class="align-middle">{{$item->price}}</td>
                         <td class="align-middle">
-                            <a class="btn btn-primary" href="/products/update?id=<?php echo $item->id ?>">
+                            <a class="btn btn-primary" href="/products/update?id={{$item->id}}">
                                 Edit
                             </a>
-                            <a class="btn btn-danger ms-2" href="/products/delete?id=<?php echo $item->id ?>">
+                            <a class="btn btn-danger ms-2" href="/products/delete?id={{$item->id}}">
                                 Delete
                             </a>
                         </td>
                     </tr>
-                <?php } ?>
+                @endforeach
             </tbody>
         </table>
     </div>

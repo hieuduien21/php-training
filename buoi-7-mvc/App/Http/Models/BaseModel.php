@@ -92,7 +92,7 @@ class BaseModel
 
         $dataExcute = array_merge($data, $dataExcute);
 
-        $stmt = $this->pdo->prepare($sql)->execute($dataExcute);
+        $id = $this->pdo->prepare($sql)->execute($dataExcute);
         return $id ? true : false;
     }
 
